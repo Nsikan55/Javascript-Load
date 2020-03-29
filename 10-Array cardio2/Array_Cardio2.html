@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Array Cardio</title>
+</head>
+<body>
+  <p><em>Checkout the JavaScript Console</em></p>
+  <script>
+    
+
+    const people = [
+      { name: 'Max', year: 1988 },
+      { name: 'Raph', year: 1986 },
+      { name: 'Femi', year: 1970 },
+      { name: 'Alex', year: 2015 }
+    ];
+
+    const comments = [
+      { text: 'Open Now!', id: 523423 },
+      { text: 'Today Only', id: 823423 },
+      { text: 'I can beat You', id: 2039842 },
+      { text: 'I want to go Home', id: 123523 },
+      { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+
+
+    const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
+
+    console.log({isAdult});
+    
+
+    const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
+    console.log({allAdults});
+
+    
+    const comment = comments.find(comment => comment.id === 823423);
+
+    console.log(comment);
+
+    
+    const index = comments.findIndex(comment => comment.id === 823423);
+    console.log(index);
+
+
+    const newComments = [
+      ...comments.slice(0, index),
+      ...comments.slice(index + 1)
+    ];
+
+  </script>
+</body>
+</html>

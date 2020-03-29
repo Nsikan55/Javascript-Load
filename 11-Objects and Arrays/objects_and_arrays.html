@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Objects and Arrays</title>
+</head>
+<body>
+
+  <script>
+    
+    const players = ['Magani', 'Raph', 'Vasic', 'Chisom'];
+
+    
+    const team = players;
+
+    console.log(players, team);
+    
+    const team2 = players.slice();
+
+    const team3 = [].concat(players);
+
+    
+    const team4 = [...players];
+    team4[3] = 'Lets get it!!';
+    console.log(team4);
+
+    const team5 = Array.from(players);
+
+    const person = {
+      name: 'KantheMan',
+      age: 65
+    };
+
+    
+    const cap2 = Object.assign({}, person, { number: 99, age: 12 });
+    console.log(cap2);
+
+    
+
+    const kan = {
+      name: 'Kan',
+      age: 66,
+      social: {
+        twitter: '@kannister',
+        facebook: 'themankan'
+      }
+    };
+
+    console.clear();
+    console.log(kan);
+
+    const dev = Object.assign({}, kan);
+
+    const dev2 = JSON.parse(JSON.stringify(kan));
+
+
+  </script>
+
+</body>
+</html>

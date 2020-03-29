@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Array Cardio</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            const inventors = [
+                {first:'albert', last: 'Einstein', year: 1879, passed: 1955},
+                {first:'Isaac', last: 'Newton', year: 1643, passed: 1727},
+                {first:'Galileo', last: 'Galilei', year: 1873, passed: 1953},
+                {first:'Johannes', last: 'Kepler', year: 1679, passed: 1932},
+                {first:'Marie', last: 'Curie', year: 1809, passed: 1985},
+                {first:'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543},
+                {first:'Max', last: 'Planck', year: 1858, passed: 1947},
+            ];
+            const people = [
+                'mark, ronson','jason, stone','steve, rogers','margret, thatcher','Davies, benson','Johnson, dwayne','Snow, jon','Maxwell, omeke','Blessing, tiffany','Rodriguez, James','Mano, carlos'
+            ];
+            const fifteen = inventors.filter(function(inventor){
+                if(inventor.year >= 1500 && inventor.year < 1600){
+                    return true;
+                }
+            });
+
+            console.table(fifteen);
+
+            const fullNames = inventors.map(inventor => inventor.first + ' ' + inventor.last);
+            console.log(fullNames);
+
+            const ordered = inventors.sort(function(x,y){
+                if(x.year > y.year){
+                    return 1;
+                } 
+                else{
+                    return -1;
+                }
+
+            });
+
+            console.table(ordered);
+
+            const totalYears = inventors.reduce((total, inventor) => {
+                return total + (inventor.passsed - inventor.year);
+            },0);
+            const oldest = inventors.sort(function(x,y){
+                const lastGuy = x.passed - x.year;
+                const nextGuy = y.passed - y.year;
+                return lastGuy > nextGuy ? -1 : 1;
+
+            });
+
+            console.table(oldest);
+
+            //https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+            /*const category = document.querySelector('.mw-category');
+            const links = Array.from(category.querySelectorAll('a'));
+
+            const de = links
+                        .map(link => link.textContent)
+                        .filter(streetName => streetName.includes('de'));*/
+
+            const alpha = people.sort(function(lastOne, nextOne){
+                const [xlast, xfirst] = lastOne.split(', ');
+                const [ylast, yfirst] = nextOne.split(', ');
+                return xlast > ylast ? 1 : -1;
+
+            });
+            console.log(alpha);
+
+            const data = ['car', 'car', 'truck' , 'truck', 'bike', 'walk', 'car', 'van', 'bike','walk', 'car', 'van', 'car', 'truck' ];
+
+            const transportation = data.reduce(function(obj, item){
+              if(!obj[item]) {
+                  obj[item] = 0;
+              }
+                obj[item]++;
+                return obj;
+
+            },{});
+        </script>
+    </body>
+</html>
